@@ -17,6 +17,18 @@
         "command": "one-button-toggle-case.toggleCase",
         "title": "Toggle Case"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "one-button-toggle-case.toggleCase",
+        "key": "ctrl+alt+q",
+        "when": "editorTextFocus && editorHasSelection"
+      },
+      {
+        "command": "one-button-toggle-case.toggleCase",
+        "key": "cmd+alt+q",
+        "when": "editorTextFocus && editorHasSelection"
+      }
     ]
   },
   "scripts": {

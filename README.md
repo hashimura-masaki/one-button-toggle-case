@@ -1,71 +1,56 @@
-# one-button-toggle-case README
+# one-button-toggle-case
 
-This is the README for your extension "one-button-toggle-case". After writing up a brief description, we recommend including the following sections.
+`one-button-toggle-case`は、選択したテキストのケーススタイルを簡単に切り替えることができるVisual Studio Code拡張機能です。サポートされているケーススタイルには、以下が含まれます：
 
-## Features
+- lowerCamelCase
+- UpperCamelCase
+- snake_case
+- SCREAMING_SNAKE_CASE
+- kebab-case
+- SCREAMING-KEBAB-CASE
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## 特徴
 
-For example if there is an image subfolder under your extension project workspace:
+- 選択したテキストのケーススタイルを自動的に検出し、次のスタイルに変換します。
+- 一度に複数の選択範囲を処理可能（最大10箇所まで）。
+- 無効な文字や長すぎるテキストを検出し、ユーザーに通知します。
 
-\!\[feature X\]\(images/feature-x.png\)
+## 使用方法
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. テキストエディタで変換したいテキストを選択します。
+2. コマンドパレット（`Ctrl+Shift+P`または`Cmd+Shift+P`）を開き、`One Button Toggle Case: Toggle Case`を実行します。
+3. または、以下のキーバインドを使用してコマンドを実行します：
+   - **Windows/Linux**: `Ctrl+Alt+Q`
+   - **Mac**: `Cmd+Alt+Q`
+4. 選択したテキストが次のケーススタイルに変換されます。
 
-## Requirements
+## 要件
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Codeがインストールされている必要があります。
+- Node.jsがインストールされている必要があります。
 
-## Extension Settings
+## 制限事項
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- 一度に処理できる選択範囲は最大10箇所です。
+- 選択範囲が空、または100文字を超える場合は処理されません。
+- 無効な文字（英数字、アンダースコア、ハイフン以外）が含まれる場合は処理されません。
 
-For example:
+## 拡張機能の設定
 
-This extension contributes the following settings:
+この拡張機能には特定の設定項目はありません。
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## 既知の問題
 
-## Known Issues
+- 現在のところ、単語の分割や結合のロジックが完全ではない場合があります。
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
+## リリースノート
 
 ### 1.0.0
 
-Initial release of ...
+- 初期リリース。
 
-### 1.0.1
+## 開発者向け情報
 
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+この拡張機能のコードは、`src/extension.ts`に実装されています。拡張機能の動作をカスタマイズしたい場合は、このファイルを編集してください。
 
 ---
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
