@@ -1,7 +1,13 @@
 {
   "name": "one-button-toggle-case",
+  "publisher": "saitoh",
   "displayName": "one-button-toggle-case",
   "description": "one-button-toggle-case is a Visual Studio Code extension that allows you to quickly transform the selected text into different naming conventions—such as camelCase, snake_case, or kebab-case—with a single button or command. You simply select the text, press the assigned key (or run the command), and cycle through the available cases until you find the one you need. This streamlines the process of renaming variables, functions, or other items in your code, helping you maintain consistent naming styles without having to do manual replacements.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashimura-masaki/one-button-toggle-case.git"
+  },
+  "license": "MIT",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.99.0"
