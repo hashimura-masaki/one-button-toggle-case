@@ -31,8 +31,21 @@ export function activate(context: vscode.ExtensionContext) {
 		const selections = editor.selections;
 
 		await editor.edit((editBuilder) => {
+			if(selections.length === 0) {
+				vscode.window.showInformationMessage('No selections');
+				return;
+			}
+			if(selections.length > 10) {
+				vscode.window.showInformationMessage('Too many selections');
+				return;
+			}
 			selections.forEach((selection) => {
 				const text = document.getText(selection);
+				// Check if the selection is too long
+				if (text.length > 100 || text.length === 0) {
+					vscode.window.showInformationMessage('text is too long or empty');
+					return;
+				}
 				// Check if the text contains invalid characters
 				if(containsInvalidCharacters(text)) {
 					vscode.window.showInformationMessage('Invalid text:' + text);
@@ -66,8 +79,33 @@ function detectCaseStyle(text: string): CaseStyle | null {
 	return null;
 }
 
+function convertCaseWithSingleWord(text: string): string {
+	if (text.length === 0) {
+		return text;
+	}
+	if (text === text.toLowerCase()) {
+		return text.charAt(0).toUpperCase() + text.slice(1);
+	} else if (text === text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()) {
+		return text.toUpperCase();
+	} else {
+		return text.toLowerCase();
+	}
+}
+
 function convertCase(text: string, targetStyle: CaseStyle): string {
-	const words = text.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[_\-]/g, " ").toLowerCase().split(" ");
+	// split the text into words
+	const words = text.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[_\-]/g, " ").split(" ");
+
+	// check if the text is a single word
+	if(words.length === 1) {
+		return convertCaseWithSingleWord(words[0]);
+	}
+
+	// convert all words to lowercase
+	words.forEach((word, index) => {
+		words[index] = word.toLowerCase();
+	});
+
 
 	switch (targetStyle) {
 		case "lowerCamelCase":
