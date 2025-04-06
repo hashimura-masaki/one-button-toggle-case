@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "one-button-toggle-case.helloWorld",
-        "title": "Hello World"
+        "command": "one-button-toggle-case.toggleCase",
+        "title": "Toggle Case"
       }
     ]
   },
